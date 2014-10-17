@@ -8,10 +8,6 @@ if(isset($_FILES["myfile"]))
 	
 	$error = $_FILES["myfile"]["error"];
    
-	if (filesize($_FILES["myfile"]) < 0){
-		$test = 'test';
-		$ret[$test] = filesize($_FILES["myfile"]['name']);
-	}else{
     if (! is_array ( $_FILES["myfile"]['name'] )) 	// single file
 	{
 		$RandomNum = time ();
@@ -44,7 +40,6 @@ if(isset($_FILES["myfile"]))
 			$ret [$NewImageName] = $output_dir . $NewImageName;
 			move_uploaded_file ( $_FILES["myfile"]["tmp_name"] [$i], $output_dir . $NewImageName );
 		}
-	}
 	}
     
     echo json_encode($ret);
